@@ -1,0 +1,26 @@
+---
+import { ViewTransitions } from "astro:transitions";
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width" /> 
+		<meta name="generator" content={Astro.generator} />
+		<title>Astro</title>
+		<ViewTransitions />
+	</head>
+	<body>
+		<h1>Welcome to the intex page</h1>
+		<p>Check out the <a href="/about">about page</a></p>
+		<p>Check out the <a href="/about?title=10">about with params</a></p>
+
+
+		<form action="/about" method="POST">
+			<input type="text"> Name </input>
+			<button type="submit">Confirm</button>
+		</form>
+
+	</body>
+</html>

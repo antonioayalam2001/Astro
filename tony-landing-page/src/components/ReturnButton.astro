@@ -1,0 +1,14 @@
+---
+import ArrowIcon from "./icons/ArrowIcon.astro";
+interface Props {
+    ref: string;
+}
+const { ref } = Astro.props;
+---
+
+<a
+    class="fixed xs:absolute bottom-0 xs:top-0 -translate-x-6 xs:bottom-auto rounded-full bg-white opacity-25 p-2 ml-8 mb-8 xs:m-10 hover:opacity-100 transition-opacity duration-300"
+    href={ref}
+>
+    <ArrowIcon size={28} color="black" />
+</a>

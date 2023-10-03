@@ -1,0 +1,11 @@
+---
+interface Props {
+    title: string;
+    description: string;
+}
+const {title = "Sin titulo" , description} = Astro.props ;
+// console.log(Astro);
+
+---
+<h1>{title}</h1>
+<p>{description}</p>

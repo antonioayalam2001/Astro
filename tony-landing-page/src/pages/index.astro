@@ -1,0 +1,64 @@
+---
+import { cecyt, escom, ipn } from "../assets";
+import Card from "../components/Card.astro";
+import ReturnButton from "../components/ReturnButton.astro";
+import Features from "../components/landing/Features.astro";
+import Hero from "../components/landing/Hero.astro";
+import Projects from "../components/landing/Projects.astro";
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Tony Ayala Lading Astro ">
+    <Hero />
+    <p class="text-4xl font-bold text-center py-6">Educación</p>
+    <div
+        class="flex gap-8 justify-around p-8 flex-col sm:flex-row align-center items-center"
+    >
+        <Card
+            schoolName="Centro de Estudios Cientificos y Tecnológicos No.2 'Miguel Bernard Perales'"
+            abreviation="CECyT 2 IPN"
+            title="Técnico en Diseño Gráfico Digital"
+            years="2017 - 2019"
+            promedio="9.8"
+        >
+            <img
+                class="absolute top-0 left-0 w-10 -z-10 m-2 opacity-75"
+                src={cecyt.src}
+                alt="CECYT LOGO"
+                slot="school_logo"
+            />
+            <img
+            class="absolute top-0 right-0 w-16 -z-10 m-2 opacity-50 grayscale invert "
+            class="w-full"
+            src={ipn.src}
+            alt="ESCOM LOGO"
+            slot="ipn_logo"
+        />
+        </Card>
+        <Card
+            schoolName="Escuela Superior de Cómputo"
+            abreviation="ESCOM IPN"
+            title="Ingeniero en Sistemas Computacionales"
+            years="2019 - 2024"
+            promedio="9.7"
+        >
+            <img
+                class="absolute top-0 left-0 w-16 -z-10 m-2"
+                class="w-full"
+                src={escom.src}
+                alt="ESCOM LOGO"
+                slot="school_logo"
+            />
+            <img
+                class="absolute top-0 right-0 w-16 -z-10 m-2 opacity-50 grayscale invert "
+                class="w-full"
+                src={ipn.src}
+                alt="ESCOM LOGO"
+                slot="ipn_logo"
+            />
+        </Card>
+    </div>
+    <Projects />
+    <Features />
+    <ReturnButton ref="/home" />
+</Layout>

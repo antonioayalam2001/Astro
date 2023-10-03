@@ -1,0 +1,71 @@
+---
+import Hobbies from "../components/Hobbies.astro";
+import ReturnButton from "../components/ReturnButton.astro";
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Tony Ayala ">
+    <h1
+        class="text-6xl font-glory p-4 text-center font-bold text-secondary pt-8 pb-8"
+    >
+        Acerca de mi
+    </h1>
+    <div class="flex flex-col md:flex-row gap-4 justify-center items-center">
+        <div
+            class="w-[300px] h-[300px] z-50 flex justify-center items-center tony_img flex-grow"
+        >
+            <img
+                transition:name="img"
+                class="w-full"
+                src="images/tony.jpg"
+                alt=""
+            />
+        </div>
+        <div class="md:max-w-2xl p-5">
+            <p class="leading-10">
+                ¡ Gracias por mostrar un poco mas de interes!. <br /><br /> Mi
+                nombre es José Antonio Mora Ayala y soy un estudiante de
+                ingeniería en sistemas computacionales de último año. <br />
+                <b>
+                    Me apasiona el desarrollo web y tengo experiencia en el uso
+                    de diferentes tecnologías y herramientas para crear
+                    aplicaciones web dinámicas y responsivas.
+                </b>
+                <br /> Me considero un aprendiz autodidacta y siempre estoy
+                buscando nuevos retos y oportunidades para mejorar mis
+                habilidades.
+                <br />
+            </p>
+        </div>
+    </div>
+    <ReturnButton ref="/" />
+    <div class="p-6 pt-20">
+        <p
+            class="text-6xl font-glory p-4 text-center font-bold text-secondary pt-8 pb-8"
+        >
+            ¿En Equipo o Individual?
+        </p>
+        <p class="leading-10">
+            Soy una persona que puede trabajar eficazmente tanto en equipo como
+            de forma individual, adaptándome a las necesidades de cada
+            situación. <br /> Tengo habilidades de <span
+                class="italic text-fuchsia-300"
+                >liderazgo, manejo de estrés y organización que he desarrollado
+                durante mi trayectoria académica.
+            </span>Por ejemplo, he participado en varios proyectos de
+            investigación en el campo de la ingeniería, donde he demostrado mi
+            capacidad de resolver problemas, comunicarme con claridad y trabajar
+            bajo presión. Además, he obtenido reconocimientos académicos por mi
+            desempeño y he asistido a cursos y seminarios para ampliar mis
+            conocimientos y competencias.
+
+            <br /><br />
+        </p>
+    </div>
+    <p
+        class="text-6xl font-glory p-4 text-center font-bold text-secondary pt-8 pb-8"
+    >
+        Hobbies
+    </p>
+    <Hobbies />
+</Layout>

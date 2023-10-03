@@ -1,0 +1,61 @@
+---
+interface Props {
+    schoolName: string;
+    abreviation: string;
+    title: string;
+    years: string;
+    description?: string;
+    promedio?: string;
+}
+const { schoolName, abreviation, title, years, description, promedio } =
+    Astro.props;
+---
+
+<div
+    class="group duration-100 hover:-skew-x-0 skew-x-6 hover:translate-x-2 cursor-pointer"
+>
+    <div
+        class="group-hover:duration-400 relative rounded-2xl w-80 h-36 sm:w-80 sm:h-40 bg-dimPink text-gray-50 flex flex-col justify-center items-center gap-1 before:-skew-x-12 before:rounded-2xl before:absolute before:content[''] before:bg-dimPink before:right-3 before:top-0 before:w-80 sm:before:w-80 before:h-36 sm:before:h-32 before:-z-10 p-4"
+    >
+        <!-- White Band -->
+        <div class="w-full h-full absolute top-0 bg-red z-100 education_card">
+            <div class="flag"></div>
+        </div>
+        <span class="text-lg xs:text-xl font-bold text-center">{title}</span>
+        <p
+            class="text-fuchsia-300 italic font-thin text-sm self-center w-full text-center mt-2"
+        >
+            {schoolName}
+        </p>
+        <div class="flex justify-around w-full mt-2">
+            <p class="text-fuscia-200 font-thin text-xs">{abreviation}</p>
+            <p class="text-fuscia-200 font-thin text-xs">{years}</p>
+            <p class="text-fuscia-200 font-thin text-xs">
+                Promedio: {promedio}
+            </p>
+        </div>
+        <slot name="school_logo" />
+        <slot name="ipn_logo" />
+    </div>
+</div>
+
+<style>
+    .education_card {
+        overflow: hidden;
+    }
+    .flag {
+        content: "";
+        position: absolute;
+        left: -360px;
+        transform-origin: center;
+        transform: translateY(250px);
+        width: 800px;
+        height: 50px;
+        background-color: white;
+        rotate: 45deg;
+        transition: all 0.8s ease-out;
+    }
+    .education_card:hover .flag {
+        left: 600px;
+    }
+</style>

@@ -1,0 +1,22 @@
+---
+import { socialMedia } from "../utils/constants";
+
+---
+
+<div>
+    <h4 class="pb-6">Mis Redes Sociales</h4>
+    <div class="flex gap-4">
+    {
+        socialMedia.map(({ icon, link }) => (
+            <a
+                href={link}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="text-white hover:text-dimGray"
+            >
+                <img src={icon.src} alt="" />
+            </a>
+        ))
+    }
+    </div>
+</div>

@@ -1,0 +1,15 @@
+---
+import type { Icon } from "../../utils/types";
+
+interface Props {
+    icons: Icon[];
+}
+
+const { icons } = Astro.props;
+---
+
+{
+    icons.map((icon) => {
+        return <img src={icon.src} alt="" class="w-6" />;
+    })
+}

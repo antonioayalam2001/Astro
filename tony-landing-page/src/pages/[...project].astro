@@ -1,0 +1,29 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { projects } from "../utils/constants";
+export async function getStaticPaths() {
+    const pages = [
+        ...new Set(
+            projects.map((p) => ({
+                project: p.name.split(" ").join(""),
+                animationName: `project${projects.indexOf(p)}`,
+            }))
+        ),
+    ];
+    return pages.map(({ project, animationName }) => {
+        const currentProject = projects.find(
+            (p) => p.name.split(" ").join("") === project
+        );
+        return {
+            params: { project },
+            props: { currentProject, animationName },
+        };
+    });
+}
+const { currentProject, animationName } = Astro.props;
+---
+
+<Layout title={currentProject.name}>
+    <h1>{currentProject.name}</h1>
+    <img src={currentProject.img.src} alt="" transition:name={animationName} />
+</Layout>

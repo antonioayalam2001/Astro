@@ -1,0 +1,41 @@
+---
+import BlogLayout from "../../layouts/blogLayout.astro";
+// Importando de la carpeta public
+import img1 from "./public/img1.png";
+// Importando de la carpeta src/images/blog
+import { Image } from "astro:assets";
+import img2 from "../../images/blog/img2.png";
+import img3 from "../../images/blog/img3.png";
+
+const images = await Astro.glob("../../images/blog/*.png");
+// console.log(images);
+
+---
+
+<BlogLayout>
+    <img src={img1.src} width="120" alt="Img1" />
+    <img src={img2.src} width="120" alt="Img2" />
+    <Image src={img3} alt="Image number 3" width={120} height={90} />
+
+    <h2>Images from Astro.glob</h2>
+    <ul>
+        {images.map((image) => (
+            <li>
+                <hr>
+                <img src={image.default.src} alt="Image from Astro.glob" width={120} height={90} />
+                <p>Componente Image</p>
+                <Image src={image.default} alt="Image from Astro.glob" width={120} height={90} />
+            </li>
+        ))}
+
+</BlogLayout>
+
+<style>
+    img {
+        border: 1px solid red;
+    }
+    li{
+        margin-bottom: 1rem;
+    }
+
+</style>

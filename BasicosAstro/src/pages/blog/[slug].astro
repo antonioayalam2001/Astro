@@ -1,0 +1,37 @@
+---
+import { getCollection } from "astro:content";
+import BlogLayout from "../../layouts/blogLayout.astro";
+import { fade } from "astro:transitions";
+
+// La generacion de rutas dinamicas ocupa de forma INDISPENSABLE ESTA FUNCIÓN
+export async function getStaticPaths() {
+    const blogEntries = await getCollection("blog");
+    return blogEntries.map((entry) => ({
+        params: { slug: entry.slug },
+        props: { entry },
+    }));
+}
+
+const { entry } = Astro.props;
+const {title, description,author} = entry.data;
+
+
+const { Content } = await entry.render();
+---
+
+<BlogLayout title="Blog entry">
+    <div class="post_info">
+        <h2 transition:animate={fade({ duration: '1.4s' })}>{title}</h2>
+        <p transition:animate={fade({ duration: '1.6s' })}>{description}</p>
+        <p transition:animate={fade({ duration: '1.8 s' })}>{author}</p>
+    </div>
+    <p>Renderizando el contenido de cada uno de los markdown individualmente</p>
+    <Content />
+</BlogLayout>
+
+<style is:global>
+    p {
+        font-size: 0.8rem;
+        font-style: italic;
+    }
+</style>

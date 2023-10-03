@@ -1,0 +1,39 @@
+---
+import gitImg from "../../assets/github.png";
+import { projects } from "../../utils/constants";
+import Project from "./Project.astro";
+---
+
+<section class="p-6">
+    <p class="text-4xl font-bold text-center py-6">Proyectos</p>
+    <div
+        class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 justify-between gap-4 sm:gap-2 md:gap-3 projects__container"
+    >
+        {
+            projects.map((project, index) => {
+                return (
+                    <Project
+                        project={project}
+                        gitImg={gitImg}
+                        index={index}
+                        link={`/${project.name.split(" ").join("")}`}
+                        animationName={`project${index}`}
+                    />
+                );
+            })
+        }
+    </div>
+</section>
+
+<style is:global>
+    .gitLink {
+        filter: invert(56%) sepia(48%) saturate(5156%)
+            hue-rotate(calc(10deg * var(--index))) brightness(50%)
+            contrast(101%);
+    }
+    .gitLink:hover {
+        filter: invert(56%) sepia(48%) saturate(5156%)
+            hue-rotate(calc(10deg * var(--index))) brightness(100%)
+            contrast(101%);
+    }
+</style>

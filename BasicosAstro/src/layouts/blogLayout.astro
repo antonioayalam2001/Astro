@@ -1,0 +1,58 @@
+---
+import { ViewTransitions, fade } from "astro:transitions";
+const {title} = Astro.props
+---
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Layout</title>
+    <ViewTransitions/>
+</head>
+<body>
+        <hr>
+        <h1>{title}</h1>
+        <h2 transition:animate={fade({ duration: '1.4s' })}>Welcome</h2>
+        <hr>
+        <slot/>
+</body>
+</html>
+
+<style is:global>
+    body {
+        font-family: sans-serif;
+        background-repeat: no-repeat;
+        padding: 1rem;
+        max-width: 920px;
+        margin: 0 auto;
+    }
+    nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem;
+        background-color: #eee;
+    }
+    nav a {
+        text-decoration: none;
+        color: #333;
+    }
+    nav a:hover {
+        color: #000;
+    }
+    nav a.active {
+        color: #000;
+        font-weight: bold;
+    }
+    hr {
+        margin: 0;
+    }
+    .post_info{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem;
+        background-color: #eee;
+    }
+</style>

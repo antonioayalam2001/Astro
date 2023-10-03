@@ -1,0 +1,35 @@
+---
+import { slide } from "astro:transitions";
+import { technologies } from "../../utils/constants.js";
+const techs = technologies;
+---
+
+<div class="w-full min-h-screen bg-primary flex flex-col justify-center">
+    <p class="text-4xl font-bold text-center py-6">Tecnologías</p>
+    <div id="animation">
+        <p class="text-center text-lg  py-4">
+            A lo largo de mi formación he trabajado con las siguientes tecnologías, herramientas y lenguajes de programación. Las cuales me ha permitido desarrollar proyectos de todo tipo. 
+        </p>
+    </div>
+    <div
+        class="items-center justify-center justify-items-center grid grid-cols-2 md:grid-cols-3 place-content-center content-center"
+    >
+        {
+            techs.map((tech, index) => (
+                <div
+                    class="tech p-4 flex flex-col justify-center content-center items-center"
+                    transition:animate={slide({ duration: index * 100 })}
+                >
+                    <img
+                        src={tech.icon.src}
+                        alt={tech.name}
+                        height="80"
+                        width="80"
+                    />
+                    <p class="text-center p-4">{tech.name}</p>
+                </div>
+            ))
+        }
+    </div>
+</div>
+

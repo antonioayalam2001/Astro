@@ -1,0 +1,113 @@
+---
+import type { Project } from "../../utils/types";
+import Icons from "./Icons.astro";
+interface Props {
+    project: Project;
+    gitImg: any;
+    index: number;
+    link: string;
+    animationName: string;
+}
+const { project, gitImg, index, link, animationName } = Astro.props;
+const anim = {
+    old: {
+        name: "fadeIn",
+        duration: "1.2s",
+        easing: "linear",
+        fillMode: "forwards",
+    },
+    new: {
+        name: "fadeOut",
+        duration: "2.3s",
+        easing: "linear",
+        fillMode: "backwards",
+    },
+};
+
+const myFade = {
+    forwards: anim,
+    backwards: anim,
+};
+---
+
+<div
+    class="border-2 border-secondary border-opacity-60 flex flex-col justify-between rounded-md shadow-md shadow-secondary relative project"
+    transition:animate={myFade}
+    )
+>
+    <img src={project.img.src} alt="" transition:name={animationName} />
+    <a href={link} class="text-2xl p-4 font-bold shadow-none">{project.name}</a>
+    <p class="text-xs p-4">{project.desc}</p>
+    <div class="flex gap-3 p-3">
+        <Icons icons={project.icons} />
+    </div>
+    <a class="absolute bottom-0 right-0 p-2 flip-card git" href={project.gitUrl}>
+        <img
+            src={gitImg.src}
+            alt="gitLink"
+            class="gitLink w-9 sm:w-12 md:w-18 flip-card-inner"
+            style={`--index:${index * 20 + 60}`}
+        />
+    </a>
+</div>
+
+<style>
+    .flip-card {
+        perspective: 1000px;
+    }
+
+    .flip-card-inner {
+        position: relative;
+        transition: transform 0.6s;
+        transform-style: preserve-3d;
+
+    }
+
+    .flip-card:hover .flip-card-inner {
+        transform: rotateY(180deg);
+    }
+
+    .project a:nth-child(2) {
+        position: relative;
+        display: block;
+    }
+    
+    a img {
+        z-index: 10;
+    }
+    
+    .project .git::after{
+        content: "";
+        position: absolute;
+        bottom: 0;
+        transform: translateX(0%);
+        width: 3rem;
+        height: 0.5rem;
+        background: rgb(168, 168, 168);
+        filter: blur(10px);
+        opacity: 1;
+        z-index: -1;
+        transition: opacity 0.5s;
+    }
+
+    @keyframes fadeIn {
+        0% {
+            opacity: 0;
+            transform: translateX(0%);
+        }
+        100% {
+            opacity: 1;
+            transform: translateX(0%);
+        }
+    }
+    @keyframes fadeOut {
+        0% {
+            opacity: 0;
+            transform: translateX(0%);
+        }
+        100% {
+            opacity: 1;
+            transform: translateX(0%);
+        }
+    }
+</style>

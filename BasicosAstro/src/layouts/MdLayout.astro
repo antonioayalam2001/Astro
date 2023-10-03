@@ -1,0 +1,81 @@
+---
+import type { MarkdownLayoutProps } from "astro";
+
+type Props = MarkdownLayoutProps<{
+    // Define las propiedades frontmatter aquí
+    title: string;
+    author: string;
+    description: string;
+}>;
+// 1. La prop frontmatter da acceso al frontmatter y otros datos
+const { title,author,description } = Astro.props.frontmatter;
+---
+
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Layout Astro Archivos MD</title>
+    </head>
+    <body>
+        <nav>
+            <ul>
+                <li><a href="/">Inicio</a></li>
+                <li><a href="/acerca">Acerca</a></li>
+                <li><a href="/contacto">Contacto</a></li>
+            </ul>
+        </nav>
+        <div class="container">
+            <slot />
+        </div>
+    </body>
+</html>
+<style is:global>
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: "Roboto", sans-serif;
+        max-width: 1000px;
+        margin: 0 auto;
+    }
+    nav {
+        background-color: #333;
+        padding: 1rem;
+    }
+    nav ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+    nav ul li {
+        display: inline-block;
+        margin-right: 1rem;
+    }
+    nav ul li a {
+        color: #fff;
+        text-decoration: none;
+    }
+    .container {
+        width: 100%;
+        max-width: 1000px;
+        margin: 0 auto;
+    }
+    p {
+        font-size: 1rem;
+        line-height: 1.5rem;
+        font-style: italic;
+    }
+    h1 {
+        font-size: 2rem;
+        line-height: 2.5rem;
+    }
+    h2 {
+        font-size: 1.5rem;
+        line-height: 2rem;
+    }
+    h3 {
+        font-size: 1.25rem;
+        line-height: 1.75rem;
+    }
+</style>

@@ -1,0 +1,38 @@
+---
+import { logoC } from "../../assets";
+---
+
+<header class="bg-dimPink flex flex-col md:flex-row p-10 sm:p-20 gap-6 md:gap-3">
+    <div class="flex flex-col align-around justify-between gap-8">
+        <h1 class="text-4xl md:text-5xl font-bold">Tony Ayala</h1>
+        <p class="text-sm leading-8">
+            ¡Hola! Soy Jose Antonio Mora Ayala. Las personas usualmente me
+            llaman <b>Tony</b>. <br />Soy un desarrollador de software que le
+            encanta crear cosas nuevas y aprender nuevas tecnologías. <br />
+            <span class="text-fuchsia-300 text-lg italic">
+                 Full-stack en desarrollo
+            </span>
+            <br />
+            <b>¿Tienes algún proyecto en mente?</b>
+            <br /> ¡Hagamoslo realidad!
+        </p>
+        <a
+            href="/about"
+            class="p-3 bg-secondary text-white hover:bg-slate-950 hover:text-white rounded-lg border-none outline-none transition-colors w-fit"
+            >Conoceme un poco más</a
+        >
+        <small class="italic text-xs"
+            >Esta es una página de práctica realizada en mi aprendizaje de
+            Astro. Te invito a visitar mi página principal en <a
+                class="text-secondary hover:text-white"
+                href="https://antonio-web-page.netlify.app/">Antonio Ayala</a
+            ></small
+        >
+    </div>
+    <img
+        transition:name="img"
+        class="self-center w-80 lg:scale-125"
+        src={logoC.src}
+        alt="Gaming now"
+    />
+</header>

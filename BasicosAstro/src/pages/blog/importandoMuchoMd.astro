@@ -1,0 +1,44 @@
+---
+import BlogLayout from "../../layouts/blogLayout.astro";
+
+// importa todos los archivos que terminan en `.md` en `./src/pages/post/`
+const posts = await Astro.glob("./*.md");
+// console.log(posts);
+---
+
+<!-- Renderiza un <article> para los primeros 5 posts del blog -->
+<BlogLayout>
+    <div>
+        {
+            posts.slice(0, 4).map((post) => (
+                <article>
+                    <h2>{post.frontmatter.title}</h2>
+                    <p>{post.frontmatter.description}</p>
+                    <a href={post.url}>Leer más</a>
+                </article>
+            ))
+        }
+    </div>
+</BlogLayout>
+
+<style>
+    article {
+        margin-bottom: 2rem;
+        border-radius: 3rem;
+        padding: 1rem;
+        background-color: #f5f5f5;
+    }
+    h2 {
+        margin-bottom: 0.5rem;
+    }
+    p {
+        margin-bottom: 0.5rem;
+    }
+    a {
+        color: #0070f3;
+        text-decoration: none;
+    }
+    a:hover {
+        text-decoration: underline;
+    }
+</style>

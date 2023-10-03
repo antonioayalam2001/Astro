@@ -1,0 +1,26 @@
+---
+import Hobbie from "./Hobbie.astro";
+import BookIcon from "./icons/BookIcon.astro";
+import ChefIcon from "./icons/ChefIcon.astro";
+import GameIcon from "./icons/GameIcon.astro";
+const icons = [GameIcon, BookIcon, ChefIcon];
+---
+
+<div class="px-8 pb-20">
+    <p class="pb-10  leading-10">
+        En mi tiempo libre, me gusta jugar videojuegos, estudiar temas
+        relacionados con la programación y la inteligencia artificial, y cocinar
+        platillos variados. También hablo inglés fluidamente y tengo interés en
+        aprender otros idiomas. Espero poder colaborar con ustedes en sus
+        proyectos y aportar valor a su empresa.
+    </p>
+    <div class="sm:flex-row gap-4 justify-between flex flex-col">
+        {
+            icons.map((Icon, i) => (
+                <Hobbie>
+                    <Icon size={80} slot="icono"/>
+                </Hobbie>
+            ))
+        }
+    </div>
+</div>

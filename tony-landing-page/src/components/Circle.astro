@@ -1,0 +1,43 @@
+---
+interface Props {
+    index: string;
+    top: string;
+    right?: string;
+    left?: string;
+    size: string;
+}
+import "../styles/Layout.css";
+const { index, top, right, left, size } = Astro.props;
+---
+
+<!-- <div class="w-12 h-12 absolute top-0 rounded-full pink__gradient"> -->
+<div
+    class={`absolute bg-pink-gradient  z-[1]  move  rounded-full opacity-60 righ top-0 circle`}
+    style={{
+        "--i": index,
+    }}
+>
+</div>
+
+<style define:vars={{ index, top, right, left, size }}>
+    .circle {
+        width: var(--size);
+        height: var(--size);
+        top: var(--top);
+        right: var(--right);
+        left: var(--left);
+    }
+    .move {
+        animation: moveUp 1s calc(var(--i) * 0.3s) infinite alternate ease-in-out;
+    }
+    @keyframes moveUp {
+        0% {
+            -webkit-transform: translateY(100px);
+            transform: translateY(40px);
+        }
+        100% {
+            -webkit-transform: translateY(0);
+            transform: translateY(0);
+        }
+    }
+</style>
