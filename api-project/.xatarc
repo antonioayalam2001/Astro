@@ -1,0 +1,6 @@
+{
+  "databaseURL": "https://Tony-Ayala-s-workspace-tk4e6v.us-east-1.xata.sh/db/astro",
+  "codegen": {
+    "output": "src/xata.ts"
+  }
+}

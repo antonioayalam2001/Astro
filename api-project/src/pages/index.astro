@@ -1,0 +1,28 @@
+---
+import type { Job } from "../xata";
+const jobs = await fetch("http://localhost:4321/api/jobs");
+const { data }: { data: Job[] } = await jobs.json();
+// console.log(data);
+---
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <meta name="viewport" content="width=device-width" />
+        <meta name="generator" content={Astro.generator} />
+        <title>Astro</title>
+    </head>
+    <body>
+        {
+            data.map((job) => {
+                return (
+                    <div>
+                        <h1>{job.title}</h1>
+                        <p>{job.location}</p>
+                    </div>
+                );
+            })
+        }
+    </body>
+</html>

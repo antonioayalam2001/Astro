@@ -1,0 +1,12 @@
+---
+const validID = ["1", "2", "3", "4", "5"];
+const validResource = ["users", "posts", "comments"];
+const { resource, id } = Astro.params;
+if (!validResource.includes(resource) || !validID.includes(id)) {
+  return Astro.redirect("/");
+}
+---
+
+<h1>Datos recibidos son:</h1>
+<p>Resource: {resource}</p>
+<p>Id: {id}</p>

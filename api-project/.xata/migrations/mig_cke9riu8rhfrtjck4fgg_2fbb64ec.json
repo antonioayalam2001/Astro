@@ -1,0 +1,16 @@
+{
+  "id": "mig_cke9riu8rhfrtjck4fgg",
+  "parentID": "mig_cke9rge8rhfrtjck4ffg",
+  "checksum": "1:2fbb64eca72a1562c6dd367257bb52251f93b81b9dcc6fd1bd4cad0e63c3d43d",
+  "operations": [
+    {
+      "addColumn": {
+        "column": {
+          "name": "location",
+          "type": "string"
+        },
+        "table": "job"
+      }
+    }
+  ]
+}
