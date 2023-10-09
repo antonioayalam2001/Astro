@@ -1,0 +1,32 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+---
+
+<Layout title="404">
+    <div class="flex flex-col ss:flex-col sm:w-full  justify-center items-center">
+        <h1 class="text-white text-3xl text-center xs:mb-28 font-extrabold">Oops, this page does not exist</h1>
+        <img class="error_image opacity-60" src="/ghost.png" alt="">
+    </div>
+</Layout>
+
+<style>
+    .error_image{
+        max-width: 900px;
+        width: 50%;
+        margin-top: 2rem;
+        animation: up-down 3s infinite;
+    }
+
+    @keyframes up-down {
+        0% {
+            transform: translateY(0);
+        }
+        50% {
+            transform: translateY(-100px);
+        }
+        100% {
+            transform: translateY(0);
+        }
+    }
+</style>

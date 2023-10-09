@@ -1,0 +1,15 @@
+---
+interface Props {
+    ref: string;
+    title?: string;
+}
+const { ref } = Astro.props;
+---
+
+<a
+    href={ref}
+    class="border-none hover:border-4 focus:border-blue-900 focus:outline-none focus:ring-4 p-2 rounded-lg text-white text-sm hover:scale-110 scale-90 hover:bg-slate-800 transition-all duration-200 mb-4 flex gap-4 items-center"
+>
+    <slot name="before" />
+    <slot />
+</a>

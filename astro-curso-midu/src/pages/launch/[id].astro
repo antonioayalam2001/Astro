@@ -1,0 +1,31 @@
+---
+export const prerender = false;
+
+import { fade } from "astro:transitions";
+import Layout from "../../layouts/Layout.astro";
+import { getLaunchById } from "../../services/spaceX";
+const { id } = Astro.params;
+if (!id) {
+    Astro.redirect("/");
+}
+const launch = await getLaunchById(id || "");
+---
+
+<Layout title="Space Launch">
+    <article class="flex">
+        <img
+            transition:animate={fade({ duration: 900 })}
+            )
+            class="w-52 h-auto"
+            src={launch?.links?.patch.small}
+            alt={launch?.name}
+            style=`view-transition-name: launch-${id}`
+        />
+        <div class="p-4">
+            <h2 class="text-4xl text-white font-bold">
+                Launch #{launch?.name}
+            </h2>
+            <p class="text-lg text-white">{launch.details}</p>
+        </div>
+    </article>
+</Layout>
