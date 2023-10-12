@@ -1,6 +1,6 @@
 ---
 import AsideMenu from "@/components/AsideMenu.astro";
-import {Player} from "@/components/Player.jsx";
+import { Player } from "@/components/Player.jsx";
 import { ViewTransitions } from "astro:transitions";
 interface Props {
     title: string;
@@ -29,7 +29,11 @@ const { title } = Astro.props;
                 <slot />
             </main>
             <footer class="bg-zinc-900 min-h-[100px]" id="player">
-                <Player client:load transition:name="media-player" transition:persist/>
+                <Player
+                    client:load
+                    transition:name="media-player"
+                    transition:persist
+                />
             </footer>
         </div>
         <style is:global>

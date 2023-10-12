@@ -35,8 +35,6 @@ const myFade = {
         class="relative flex flex-col h-full overflow-x-hidden bg-zinc-900"
         transition:name=`playlist ${id} box`
     >
-        <!-- Componente Svelte -->
-        
         <!-- PageHeader -->
         <header class="flex flex-row gap-8 px-6 mt-12">
             <picture class="aspect-square w-52 h-52 flex-none relative z-10">
@@ -93,8 +91,12 @@ const myFade = {
     define:vars={{
         color: [playlist?.color.accent],
         darkColor: [playlist?.color.dark],
+        darkColorOpacity: [playlist?.color.darkOpacity],
     }}
 >
+    #playlist-container {
+        background-color: var(--darkColorOpacity);
+    }
     @keyframes slide-center {
         0% {
             transform: translateX(-100px);
@@ -115,8 +117,8 @@ const myFade = {
         }
     }
     .disc {
-        box-shadow: 0 0 0 10px var(--color);
-        background-color: var(--color);
+        box-shadow: 0px 0 0 14px var(--color);
+        background-color: var(--darkColor);
     }
     .disc::after {
         content: "";
@@ -128,5 +130,8 @@ const myFade = {
         height: 40%;
         background-color: var(--darkColor);
         border-radius: 50%;
+        box-shadow:
+            0px 0px 0 20px var(--color),
+            0px 0px 0 40px #1818188e;
     }
 </style>
