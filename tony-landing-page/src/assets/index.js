@@ -13,7 +13,7 @@ import logoC from "./LogoCompleto.png";
 import design from "./design.png";
 import consulting from "./consulting.png";
 import code from "./code.png";
-// import tony from "./tony.jpg";
+import tony from "./tony.jpg";
 import whatsapp from "./whatsapp.svg";
 import mail from "./mail.svg";
 import github from "./github.png"
@@ -75,7 +75,7 @@ export {
     xmlfile,
     logo,
     logoC,
-    // tony,
+    tony,
     whatsapp,
     mail,
     dashboard,

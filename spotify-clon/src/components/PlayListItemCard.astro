@@ -37,11 +37,11 @@ const myFade = {
     <div
         class="absolute bottom-16 -translate-y-4 right-4 opacity-0
         group-hover:opacity-100
-        group-hover:-translate-y-6
+        group-hover:-translate-y-8
         z-20 duration-300 shadow-2xl
          transition-all"
     >
-        <CardPlayButton id={id} client:load />
+        <CardPlayButton id={id} client:load  />
     </div>
 
     <a
@@ -68,7 +68,7 @@ const myFade = {
                 class="font-medium text-sm"
                 transition:name=`playlist ${id} title`
             >
-                {title}
+                {title} con id : {id}
             </h4>
             <span
                 transition:name=`playlist ${id} artists`

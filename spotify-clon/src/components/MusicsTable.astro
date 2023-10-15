@@ -1,0 +1,63 @@
+---
+import Time from "@/icons/Time.astro";
+import type { Song } from "@/lib/data";
+interface Props {
+    songs: Song[];
+    color: string | undefined;
+}
+const { songs, color } = Astro.props;
+---
+
+<table
+    class="table-auto text-left min-w-full divide-y-2 divide-gray-500/50 z-50"
+>
+    <thead class="">
+        <tr class="text-gray-500/70 font-light">
+            <th class="px-4 py-2">#</th>
+            <th class="px-4 py-2">Title</th>
+            <th class="px-4 py-2">Album</th>
+            <th class="px-4 py-2"><Time /></th>
+        </tr>
+    </thead>
+    <tbody>
+        {
+            songs?.map((song, index) => (
+                <tr class="text-gray-200/70 font-light  cursor-pointer song hover:rounded-md h-[16p x]">
+                    <td class="px-4 py-2 rounded-tl-lg rounded-bl-lg w-1 sm:w-5">
+                        {index + 1}
+                    </td>
+                    <td class="px-4 py-2 flex gap-2  ">
+                        <picture class=" sm:w-12  sm:h-12 rounded-md overflow-hidden  hidden sm:inline ">
+                            <img
+                                src={song.image}
+                                alt={song.title}
+                                class="w-full h-full"
+                            />
+                        </picture>
+                        <div class="flex flex-col gap-1">
+                            <h3 class="text-xs">{song.title}</h3>
+                            <p class="text-xs"> {song.artists.join(", ")}</p>
+                        </div>
+                    </td>
+                    <td class="px-4 py-2">{song.album}</td>
+                    <td class="px-4 py-2 rounded-tr-lg rounded-br-lg ">
+                        {song.duration}
+                    </td>
+                </tr>
+            ))
+        }
+    </tbody>
+</table>
+
+<style
+    define:vars={{
+        color: color || "#fff",
+    }}
+>
+    .song {
+        transition: background-color 0.2s ease-in-out;
+    }
+    .song:hover {
+        background-color: var(--color);
+    }
+</style>

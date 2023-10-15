@@ -20,7 +20,7 @@ const { title } = Astro.props;
         <title>{title}</title>
         <ViewTransitions />
     </head>
-    <body>
+    <body class="min-h-screen">
         <div id="app" class="gap-2 p-2 h-screen relative">
             <aside class="bg-zinc-900 flex-col flex overflow-y-auto" id="aside">
                 <AsideMenu />
@@ -63,6 +63,24 @@ const { title } = Astro.props;
             }
             #player {
                 grid-area: player;
+            }
+
+            @media (width < 920px) {
+                #app {
+                    display: grid;
+                    grid-template-areas: "aside main main" "player player player";
+                    grid-template-columns: 100px auto;
+                    grid-template-rows: 1fr auto;
+                }
+                #aside {
+                    grid-area: aside;
+                }
+                #main {
+                    grid-area: main;
+                }
+                #player {
+                    grid-area: player;
+                }
             }
         </style>
     </body>

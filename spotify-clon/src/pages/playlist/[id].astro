@@ -1,4 +1,6 @@
 ---
+import { CardPlayButton } from "@/components/CardPlayButton.jsx";
+import MusicsTable from "@/components/MusicsTable.astro";
 import Layout from "@/layouts/Layout.astro";
 import { allPlaylists, songs } from "@/lib/data";
 const { id } = Astro.params;
@@ -36,7 +38,7 @@ const myFade = {
         transition:name=`playlist ${id} box`
     >
         <!-- PageHeader -->
-        <header class="flex flex-row gap-8 px-6 mt-12">
+        <header class="flex flex-col md:flex-row gap-8 px-6 mt-12">
             <picture class="aspect-square w-52 h-52 flex-none relative z-10">
                 <img
                     class="object-cover h-full w-full shadow-2xl"
@@ -71,19 +73,25 @@ const myFade = {
                             <span>{playlist?.artists.join(", ")}</span>
                         </div>
                         <p class="mt-1" transition:animate="slide">
-                            <span class="text-white">50 songs</span> , 3 hr 32
-                            min
+                            <span class="text-white"
+                                >{playListSongs.length} songs</span
+                            > , 3 hr 32 min
                         </p>
                     </div>
                 </div>
             </div>
         </header>
+        <div class="z-[100] inline-block px-6 py-4">
+            <CardPlayButton id={id} client:load />
+        </div>
 
-        <div class="relative z-10 px-6 pt-12 flex"></div>
         <div
             class="absolute inset-0 bg-gradient-to-t from-zinc-900 via-zinc-900/80"
         >
         </div>
+        <section class="px-6 z-50 h-full">
+            <MusicsTable songs={playListSongs} color={playlist?.color.dark} />
+        </section>
     </div>
 </Layout>
 

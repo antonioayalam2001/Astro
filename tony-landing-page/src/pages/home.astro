@@ -1,125 +1,64 @@
 ---
-import { ViewTransitions } from "astro:transitions";
-import Circle from "../components/Circle.astro";
+import { cecyt, escom, ipn } from "../assets";
+import Card from "../components/Card.astro";
+import ReturnButton from "../components/ReturnButton.astro";
+import Features from "../components/landing/Features.astro";
+import Hero from "../components/landing/Hero.astro";
+import Projects from "../components/landing/Projects.astro";
+import Layout from "../layouts/Layout.astro";
 ---
 
-<!doctype html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Welcome</title>
-        <ViewTransitions />
-    </head>
-    <body>
-        <div
-            class="bg-primary flex flex-col justify-center items-center gap-4 min-h-screen overflow-hidden relative"
+<Layout title="Tony Ayala Lading Astro ">
+    <Hero />
+    <p class="text-4xl font-bold text-center py-6">Educación</p>
+    <div
+        class="flex gap-8 justify-around p-8 flex-col sm:flex-row align-center items-center"
+    >
+        <Card
+            schoolName="Centro de Estudios Cientificos y Tecnológicos No.2 'Miguel Bernard Perales'"
+            abreviation="CECyT 2 IPN"
+            title="Técnico en Diseño Gráfico Digital"
+            years="2017 - 2019"
+            promedio="9.8"
         >
-            <div class="relative flex flex-col justify-center items-center">
-                <div
-                    class="w-[300px] h-[300px] z-50 flex justify-center items-center tony_img"
-                >
-                    <img
-                        transition:name="img"
-                        class="w-full"
-                        src="images/tony.jpg"
-                        alt=""
-                    />
-                </div>
-                <div
-                    class="absolute white__gradient h-full w-40 top-0 bottom-20 right-20"
-                >
-                </div>
-                <div class="absolute pink__gradient h-full w-52"></div>
-                <Circle
-                    index={"3"}
-                    top={"120px"}
-                    right={"280px"}
-                    size={"120px"}
-                />
-                <Circle
-                    index={"2"}
-                    top={"-120px"}
-                    right={"-20px"}
-                    size={"70px"}
-                />
-                <Circle index={"3"} top={"0px"} left={"140px"} size={"220px"} />
-                <Circle
-                    index={"1.5"}
-                    top={"200px"}
-                    left={"50px"}
-                    size={"180px"}
-                />
-                <Circle
-                    index={"1"}
-                    top={"-120px"}
-                    left={"-100px"}
-                    size={"220px"}
-                />
-                <Circle
-                    index={"3.4"}
-                    top={"240px"}
-                    left={"-50px"}
-                    size={"100px"}
-                />
-                <a
-                    class="p-4 bg-primary text-white font-bold rounded-lg z-50"
-                    href="/">Comenzar</a
-                >
-            </div>
-        </div>
-        <style>
-            .background {
-                background: radial-gradient(
-                        circle at top left,
-                        transparent 9%,
-                        #ee5aba 10%,
-                        #ee5aba 15%,
-                        transparent 16%
-                    ),
-                    radial-gradient(
-                        circle at bottom left,
-                        transparent 9%,
-                        #ee5aba 10%,
-                        #ee5aba 15%,
-                        transparent 16%
-                    ),
-                    radial-gradient(
-                        circle at top right,
-                        transparent 9%,
-                        #ee5aba 10%,
-                        #ee5aba 15%,
-                        transparent 16%
-                    ),
-                    radial-gradient(
-                        circle at bottom right,
-                        transparent 9%,
-                        #ee5aba 10%,
-                        #ee5aba 15%,
-                        transparent 16%
-                    ),
-                    radial-gradient(circle, transparent 25%, #0e000f 26%),
-                    linear-gradient(
-                        0deg,
-                        transparent 44%,
-                        #ee5aba 45%,
-                        #ee5aba 55%,
-                        transparent 56%
-                    ),
-                    linear-gradient(
-                        90deg,
-                        transparent 44%,
-                        #ee5aba 45%,
-                        #ee5aba 55%,
-                        transparent 56%
-                    );
-                background-size: 6em 6em;
-                background-color: #0e000f;
-                width: 100%;
-                height: 100%;
-                z-index: -1;
-                opacity: 0.5;
-            }
-        </style>
-    </body>
-</html>
+            <img
+                class="absolute top-0 left-0 w-10 -z-10 m-2 opacity-75"
+                src={cecyt.src}
+                alt="CECYT LOGO"
+                slot="school_logo"
+            />
+            <img
+            class="absolute top-0 right-0 w-16 -z-10 m-2 opacity-50 grayscale invert "
+            class="w-full"
+            src={ipn.src}
+            alt="ESCOM LOGO"
+            slot="ipn_logo"
+        />
+        </Card>
+        <Card
+            schoolName="Escuela Superior de Cómputo"
+            abreviation="ESCOM IPN"
+            title="Ingeniero en Sistemas Computacionales"
+            years="2019 - 2024"
+            promedio="9.7"
+        >
+            <img
+                class="absolute top-0 left-0 w-16 -z-10 m-2"
+                class="w-full"
+                src={escom.src}
+                alt="ESCOM LOGO"
+                slot="school_logo"
+            />
+            <img
+                class="absolute top-0 right-0 w-16 -z-10 m-2 opacity-50 grayscale invert "
+                class="w-full"
+                src={ipn.src}
+                alt="ESCOM LOGO"
+                slot="ipn_logo"
+            />
+        </Card>
+    </div>
+    <Projects />
+    <Features />
+    <ReturnButton ref="/" />
+</Layout>
