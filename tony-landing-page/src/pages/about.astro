@@ -2,6 +2,7 @@
 import Hobbies from "../components/Hobbies.astro";
 import ReturnButton from "../components/ReturnButton.astro";
 import Layout from "../layouts/Layout.astro";
+import { tony } from "../assets";
 ---
 
 <Layout title="Tony Ayala ">
@@ -17,8 +18,8 @@ import Layout from "../layouts/Layout.astro";
             <img
                 transition:name="img"
                 class="w-full"
-                src="images/tony.jpg"
-                alt=""
+                src={tony.src}
+                alt="Jose Antonio Mora Ayala - Tony Ayala"
             />
         </div>
         <div class="md:max-w-2xl p-5">
